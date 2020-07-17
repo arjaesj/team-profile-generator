@@ -15,7 +15,7 @@ const render = require("./lib/htmlRenderer");
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 
-const myTeamArray = []; //empty array for the user's team, members will be pushed when the user finished asnwering the inquirer prompts
+const myTeamArray = []; //empty array for the usecr's team, members will be pushed when the user finished asnwering the inquirer prompts
 
 function myTeamPrompts() {
     inquirer
@@ -41,9 +41,9 @@ function myTeamPrompts() {
           validate: (response) => {
             
             // arjae: from stackoverflow
-            const responseValidNumber = response.match(/\d+g/);
+            // const responseValidNumber = response.match(/\d+g/);
             
-            // const valid = response.match(/^[1-9]\d*$/); 
+            const responseValidNumber = response.match(/^[0-9]\d*$/); 
             if (responseValidNumber) {
               return true;
             } else {
@@ -72,9 +72,9 @@ function myTeamPrompts() {
           validate: (response) => {
 
             // arjae: from stackoverflow
-            const responseValidNumber = response.match(/\d+g/);
+            // const responseValidNumber = response.match(/\d+g/);
 
-            // const valid = response.match(/^[1-9]\d*$/);
+            const responseValidNumber = response.match(/^[0-9]\d*$/);
             if (responseValidNumber) {
               return true;
             } else {
@@ -92,7 +92,7 @@ function myTeamPrompts() {
           answer.officeNumber
         );
         // data from the user input to be pushed to the myTeamArray array
-        teamArr.push(manager);
+        myTeamArray.push(manager);
         // Employee type selection function prompt will then be invoked
         employeeType();
       })
@@ -125,7 +125,7 @@ function myTeamPrompts() {
             addIntern();
             break;
           default:
-            createTeam();
+            generateTeamHtml();
         }
       })
       .catch((err) => {
@@ -157,9 +157,9 @@ function myTeamPrompts() {
           validate: (response) => {
 
             // arjae: from stackoverflow
-            const responseValidNumber = response.match(/\d+g/);
+            // const responseValidNumber = response.match(/\d+g/);
 
-            // const valid = response.match(/^[1-9]\d*$/);
+            const responseValidNumber = response.match(/^[0-9]\d*$/);
             if (responseValidNumber) {
               return true;
             } else {
@@ -184,8 +184,7 @@ function myTeamPrompts() {
           type: "input",
           name: "github",
           message: "Please Enter Your Engineer's GitHub Username:",
-          //validation function so the user will have to input a valid string for the email address
-        
+          //validation function so the user will have to input a valid string for the github username
           validate: (response) => {
             if (response !== "") {
               return true;
@@ -204,7 +203,7 @@ function myTeamPrompts() {
           answer.github
         );
         // data from the user input to be pushed to the myTeamArray array
-        teamArr.push(engineer);
+        myTeamArray.push(engineer);
         // Employee type selection function prompt will then be invoked to restart Employee type selection
         employeeType();
       })
@@ -219,22 +218,28 @@ function myTeamPrompts() {
         {
           type: "input",
           name: "name",
-          message: "Please provide Intern's your name",
+          message: "Please type in your new Intern's name",
+          //validation function so the user will have to input a valid string for the name
           validate: (response) => {
             if (response !== "") {
               return true;
             } else {
-              return "please enter a valid charater input";
+              return "Please type in valid input characters.";
             }
           },
         },
         {
           type: "input",
           name: "id",
-          message: "Please provide your Intern's employee ID",
+          message: "Please type in your new Intern's employee ID.",
+          //validation function so the user will have to input a valid number for the ID
           validate: (response) => {
-            const valid = response.match(/^[1-9]\d*$/);
-            if (valid) {
+
+            // arjae: from stackoverflow
+            // const responseValidNumber = response.match(/\d+g/);
+
+            const responseValidNumber = response.match(/^[0-9]\d*$/);
+            if (responseValidNumber) {
               return true;
             } else {
               return "You must endter a number between 1-10";
@@ -244,28 +249,31 @@ function myTeamPrompts() {
         {
           type: "input",
           name: "email",
-          message: "Please provide Intern's your email",
+          message: "Please type in your new Intern's email address.",
+          //validation function so the user will have to input a valid string for the email address
           validate: (response) => {
             if (response !== "") {
               return true;
             } else {
-              return "please enter a valid charater input";
+              return "Please type in valid input characters.";
             }
           },
         },
         {
           type: "input",
           name: "school",
-          message: "Please Enter the name of your Intern's School:",
+          message: "Please type in the name of the school your Intern's went to.",
+          //validation function so the user will have to input a valid string for the school name
           validate: (response) => {
             if (response !== "") {
               return true;
             } else {
-              return "please enter a valid charater input";
+              return "Please type in valid input characters.";
             }
           },
         },
       ])
+      //promise handled/fulfilled and instantiating a new Employee called Intern with the inputs from the inquirer prompts above.
       .then((answer) => {
         const intern = new Intern(
           answer.name,
@@ -273,8 +281,10 @@ function myTeamPrompts() {
           answer.email,
           answer.school
         );
-        teamArr.push(intern);
-        chooseTeam();
+         // data from the user input to be pushed to the myTeamArray array
+         myTeamArray.push(intern);
+        // Employee type selection function prompt will then be invoked to restart Employee type selection
+        employeeType();
       })
       .catch((err) => {
         throw err;
@@ -286,9 +296,21 @@ function myTeamPrompts() {
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
+function generateTeamHtml() {
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
 // `output` folder. You can use the variable `outputPath` above target this location.
+
+  fs.writeFileSync(outputPath, render(myTeamArray), "utf-8");
+}
+// Initialize inquirer prompts
+myTeamPrompts();
+
+
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
