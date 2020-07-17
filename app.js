@@ -29,7 +29,7 @@ function myTeamPrompts() {
             if (response !== "") {
               return true;
             } else {
-              return "Please type in a valid input characters.";
+              return "Please type in valid input characters.";
             }
           },
         },
@@ -47,7 +47,7 @@ function myTeamPrompts() {
             if (responseValidNumber) {
               return true;
             } else {
-              return "Please enter a valid number value from 0-9.";
+              return "Please enter valid number values from 0-9.";
             }
           },
         },
@@ -60,7 +60,7 @@ function myTeamPrompts() {
             if (response !== "") {
               return true;
             } else {
-              return "Please type in a valid input characters.";
+              return "Please type in valid input characters.";
             }
           },
         },
@@ -75,15 +75,15 @@ function myTeamPrompts() {
             const responseValidNumber = response.match(/\d+g/);
 
             // const valid = response.match(/^[1-9]\d*$/);
-            if (valid) {
+            if (responseValidNumber) {
               return true;
             } else {
-              return "Please enter a valid number value from 0-9.";
+              return "Please enter valid number values from 0-9.";
             }
           },
         },
       ])
-      //promise handled/fulfilled with instantiating a new Employee called Manager with the inputs from the inquirer prompts above.
+      //promise handled/fulfilled and instantiating a new Employee called Manager with the inputs from the inquirer prompts above.
       .then((answer) => {
         const manager = new Manager(
           answer.name,
@@ -91,31 +91,33 @@ function myTeamPrompts() {
           answer.email,
           answer.officeNumber
         );
-        // data fromt the user input to be pushed to the myTeamArray array
+        // data from the user input to be pushed to the myTeamArray array
         teamArr.push(manager);
-        chooseTeam();
+        // Employee type selection function prompt will then be invoked
+        employeeType();
       })
       .catch((err) => {
         throw err;
       });
   }
-  // promp the manager to choose their team, picking from either engineer, or intern, also a choice to end adding employees.
-  function chooseTeam() {
+  //Function for Employee type selection that gives the user a choice of roles an employee will have or to exit the prompts.
+  function employeeType() {
     inquirer
       .prompt([
         {
           type: "list",
-          name: "userchoice",
-          message: "Which role would you like to add to your team?",
+          name: "employeeRole",
+          message: "Choose your new employee's role in your team.",
           choices: [
             "Engineer",
             "Intern",
-            "I do not want to add anyone else to my team",
+            "Exit",
           ],
         },
       ])
-      .then(({ userchoice }) => {
-        switch (userchoice) {
+      //promise handled/fulfilled and starting a switch function to determine the type of employee to be added in the team.
+      .then(({ employeeRole }) => {
+        switch (employeeRole) {
           case "Engineer":
             addEngineer();
             break;
@@ -137,37 +139,44 @@ function myTeamPrompts() {
         {
           type: "input",
           name: "name",
-          message: "Please provide your Engineer's name",
+          message: "Please type in your new Engineer's name",
+          //validation function so the user will have to input a valid string for the name
           validate: (response) => {
             if (response !== "") {
               return true;
             } else {
-              return "please enter a valid charater input";
+              return "Please type in valid input characters.";
             }
           },
         },
         {
           type: "input",
           name: "id",
-          message: "Please provide your Engineer's employee ID",
+          message: "Please type in your new Engineer's employee ID.",
+          //validation function so the user will have to input a valid number for the ID 
           validate: (response) => {
-            const valid = response.match(/^[1-9]\d*$/);
-            if (valid) {
+
+            // arjae: from stackoverflow
+            const responseValidNumber = response.match(/\d+g/);
+
+            // const valid = response.match(/^[1-9]\d*$/);
+            if (responseValidNumber) {
               return true;
             } else {
-              return "You must endter a number between 1-10";
+              return "Please enter valid number values from 0-9.";
             }
           },
         },
         {
           type: "input",
           name: "email",
-          message: "Please provide your Engineer's email",
+          message: "Please type in your new Engineer's email address.",
+          //validation function so the user will have to input a valid string for the email address
           validate: (response) => {
             if (response !== "") {
               return true;
             } else {
-              return "please enter a valid charater input";
+              return "Please type in valid input characters.";
             }
           },
         },
@@ -175,15 +184,18 @@ function myTeamPrompts() {
           type: "input",
           name: "github",
           message: "Please Enter Your Engineer's GitHub Username:",
+          //validation function so the user will have to input a valid string for the email address
+        
           validate: (response) => {
             if (response !== "") {
               return true;
             } else {
-              return "please enter a valid charater input";
+              return "Please type in valid input characters.";
             }
           },
         },
       ])
+      //promise handled/fulfilled and instantiating a new Employee called Engineer with the inputs from the inquirer prompts above.
       .then((answer) => {
         const engineer = new Engineer(
           answer.name,
@@ -191,8 +203,10 @@ function myTeamPrompts() {
           answer.email,
           answer.github
         );
+        // data from the user input to be pushed to the myTeamArray array
         teamArr.push(engineer);
-        chooseTeam();
+        // Employee type selection function prompt will then be invoked to restart Employee type selection
+        employeeType();
       })
       .catch((err) => {
         throw err;
