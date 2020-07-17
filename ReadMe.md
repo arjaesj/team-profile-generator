@@ -1,8 +1,8 @@
-# Good ReadMe Generator
+# Coding Team Profile Generator
   ![badge](https://img.shields.io/badge/License-ISC-green.svg)
 
 ## Description
-This is a CLI (command line interface) that will dynamically generate a professional readme markdown file for your app based on the inputs you provided for each prompt after running the index.js file. You spend more time working on your project, my app will handle the readme. 
+This is a Node CLI (command line interface) that takes in information about employees and generates an HTML webpage that displays summaries for each person based on the inputs you provided for each prompt after running the `node app.js` file. Now you can view your whole team's profile in a more pleasing way and easily take you to their github account, if applicable, or can easily send an email to them.  
 
 ## Table of Contents
 1. [Installation](#Installation)
@@ -14,23 +14,27 @@ This is a CLI (command line interface) that will dynamically generate a professi
 
 
 ### Installation
-1. Clone repo</br> 2. Open your terminal and run 'npm init' to install package.json</br> 3. Install `inquirer npm` by running `npm i inquirer` in your terminal.</br>  4. Still in your terminal, run `node indx.js` then follow the prompts.</br> Note: Make sure you have node.js installed in you machine, otherwise head to https://nodejs.org/en/download/ and install it first.
+1. Clone repo</br> 2. Install `inquirer npm` by running `npm i inquirer` in your terminal.</br>  4. Still in your terminal, run `node app.js` then follow the prompts.</br> Note: Make sure you have node.js installed in you machine, otherwise head to https://nodejs.org/en/download/ and install it first.
 
 ### Usage
 Deployed URL: n/a  
-Once you have run the `node index.js` file, just follow the promts and answer all the questions presented to you and this will make up most of the contents your readme file. There default values to some of the questions and if you are ok with the default values, just hit `enter` key.  
+Once you have run the `node app.js` file, just follow the promts and answer all the questions presented to you and this will make up most of the contents your Team profile HTML page.   
  
-Watch the [demo](https://drive.google.com/file/d/12nWph4xXS9QQa5vnDxEi04EtHtD3HmsF/view?usp=sharing) video.
+Watch the demo:  
+![demo](./Assets/images/demo.gif)
 
 ### License
 Copyright (c) 2012 Rommel Jay San Jose (GitHub profile name: arjaesj)  
 Licensed under the ISC license.
 
 ### Contributing
-Please feel free to for & clone the repo and add/refactor the source code. Create a pull request for my review @ https://github.com/arjaesj/good-README-generator/compare and I'll review your code at the earliest chance I get. Thank you in advance for your contribution!
+Please feel free to for & clone the repo and add/refactor the source code. Create a pull request for my review @ https://github.com/arjaesj/team-profile-generator/compare and I'll review your code at the earliest chance I get. Thank you in advance for your contribution!
 
 ### Test
-none
+run `npm jest`
+
+Test demo:  
+![test](./Assets/images/test.gif)
 
 ### Questions
 Any questions regarding this project, please don't hesitate to contact me:  
