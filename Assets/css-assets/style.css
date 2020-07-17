@@ -1,0 +1,13 @@
+.jumbotron {
+    text-align: center;
+    background-image: url(../images/team-coding.jpg);
+    background-size: 1400px 380px
+}
+
+.jumbotron h1 {
+    color: floralwhite;
+}
+
+.card {
+    margin: 15px;
+}

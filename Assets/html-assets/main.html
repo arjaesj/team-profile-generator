@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>The Coding Dream Team</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootswatch 'Lux' Theme -->
+    <link rel="stylesheet" href="../Assets/css-assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../Assets/css-assets/style.css">
+
+    <script src="https://kit.fontawesome.com/c502137733.js"></script>
+</head>
+
+<body>
+
+    <!-- Jumbotron Header -->
+    <div class="jumbotron">
+        <h1 class="display-3">My Coding Dream Team</h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
+                {{ team }}
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var date = new Date(document.lastModified);
+
+    myNewDate = new Intl.DateTimeFormat(
+        "en-GB", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric"
+        }
+    ).format(date).replace(/\./g, '-');
+    document.getElementById("date").innerHTML = myNewDate;
+</script>
+
+</html>

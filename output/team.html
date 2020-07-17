@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>The Coding Dream Team</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootswatch 'Lux' Theme -->
+    <link rel="stylesheet" href="../Assets/css-assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../Assets/css-assets/style.css">
+
+    <script src="https://kit.fontawesome.com/c502137733.js"></script>
+</head>
+
+<body>
+
+    <!-- Jumbotron Header -->
+    <div class="jumbotron">
+        <h1 class="display-3">My Coding Dream Team</h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
+                <div class="card mb-3 employee-card">
+    <h3 class="card-header">Employee</h3>
+    <div class="card-body">
+        <h4 class="card-title">Arjae San Jose</h4>
+        <h5 class="card-subtitle text-muted"><i class="fas fa-mug-hot mr-2"></i>Manager</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="far fa-id-card fa-lg mr-2"></i> 19</li>
+        <li class="list-group-item"><i class="fas fa-at fa-lg mr-2"></i> <a href="mailto:arjae@dreamteam.com.au">arjae@dreamteam.com.au</a></li>
+        <li class="list-group-item"><i class="fas fa-phone a-lg mr-2"></i> 0402723855</li>
+    </ul>
+
+    <div class="card-footer text-muted">
+        Last updated:
+        <p id="date"></p>
+    </div>
+</div><div class="card mb-3 employee-card">
+    <h3 class="card-header">Employee</h3>
+    <div class="card-body">
+        <h4 class="card-title">Mara San Jose</h4>
+        <h5 class="card-subtitle text-muted"><i class="fas fa-glasses mr-2"></i>Engineer</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="far fa-id-card fa-lg mr-2"></i> 4</li>
+        <li class="list-group-item"><i class="fas fa-at fa-lg mr-2"></i> <a href="mailto:mara@dreamteam.com.au">mara@dreamteam.com.au</a></li>
+        <li class="list-group-item"><i class="fab fa-github fa-lg mr-2"></i> <a href="https://github.com/maraTheYellowLab" target="_blank" rel="noopener noreferrer">maraTheYellowLab</li>
+    </ul>
+
+    <div class="card-footer text-muted">
+        Last updated:
+        <p id="date"></p>
+    </div>
+</div><div class="card mb-3 employee-card">
+    <h3 class="card-header">Employee</h3>
+    <div class="card-body">
+        <h4 class="card-title">Ethan San Jose</h4>
+        <h5 class="card-subtitle text-muted"><i class="fas fa-user-graduate mr-2"></i>Intern</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="far fa-id-card fa-lg mr-2"></i> 2</li>
+        <li class="list-group-item"><i class="fas fa-at fa-lg mr-2"></i> <a href="mailto:ethan@dreamteam.com.au">ethan@dreamteam.com.au</a></li>
+        <li class="list-group-item"><i class="fas fa-school fa-lg mr-2"></i> UWA</li>
+    </ul>
+
+    <div class="card-footer text-muted">
+        Last updated:
+        <p id="date"></p>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var date = new Date(document.lastModified);
+    console.log(date)
+    myNewDate = new Intl.DateTimeFormat(
+        "en-GB", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric"
+        }
+    ).format(date).replace(/\./g, '-');
+    document.getElementById("date").innerHTML = myNewDate;
+
+    console.log(myNewDate)
+</script>
+
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>The Coding Dream Team</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootswatch 'Lux' Theme -->
+    <link rel="stylesheet" href="../Assets/css-assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../Assets/css-assets/style.css">
+
+    <script src="https://kit.fontawesome.com/c502137733.js"></script>
+</head>
+
+<body>
+
+    <!-- Jumbotron Header -->
+    <div class="jumbotron">
+        <h1 class="display-3">My Coding Dream Team</h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
+                <div class="card mb-3 employee-card">
+    <h3 class="card-header">Employee</h3>
+    <div class="card-body">
+        <h4 class="card-title">Arjae San Jose</h4>
+        <h5 class="card-subtitle text-muted"><i class="fas fa-mug-hot mr-2"></i>Manager</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="far fa-id-card fa-lg mr-2"></i> 19</li>
+        <li class="list-group-item"><i class="fas fa-at fa-lg mr-2"></i> <a href="mailto:arjae@dreamteam.com.au">arjae@dreamteam.com.au</a></li>
+        <li class="list-group-item"><i class="fas fa-phone a-lg mr-2"></i> 0402723855</li>
+    </ul>
+
+    <div class="card-footer text-muted">
+        Last updated:
+        <p id="date"></p>
+    </div>
+</div><div class="card mb-3 employee-card">
+    <h3 class="card-header">Employee</h3>
+    <div class="card-body">
+        <h4 class="card-title">Meghann Flor San Jose</h4>
+        <h5 class="card-subtitle text-muted"><i class="fas fa-glasses mr-2"></i>Engineer</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="far fa-id-card fa-lg mr-2"></i> 03</li>
+        <li class="list-group-item"><i class="fas fa-at fa-lg mr-2"></i> <a href="mailto:meghann@dreamteam.com.au">meghann@dreamteam.com.au</a></li>
+        <li class="list-group-item"><i class="fab fa-github fa-lg mr-2"></i> <a href="https://github.com/meghannFlor" target="_blank" rel="noopener noreferrer">meghannFlor</li>
+    </ul>
+
+    <div class="card-footer text-muted">
+        Last updated:
+        <p id="date"></p>
+    </div>
+</div><div class="card mb-3 employee-card">
+    <h3 class="card-header">Employee</h3>
+    <div class="card-body">
+        <h4 class="card-title">Rocco San jose</h4>
+        <h5 class="card-subtitle text-muted"><i class="fas fa-user-graduate mr-2"></i>Intern</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="far fa-id-card fa-lg mr-2"></i> 1</li>
+        <li class="list-group-item"><i class="fas fa-at fa-lg mr-2"></i> <a href="mailto:rocco@dreamteam.com.au">rocco@dreamteam.com.au</a></li>
+        <li class="list-group-item"><i class="fas fa-school fa-lg mr-2"></i> ECU</li>
+    </ul>
+
+    <div class="card-footer text-muted">
+        Last updated:
+        <p id="date"></p>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var date = new Date(document.lastModified);
+
+    myNewDate = new Intl.DateTimeFormat(
+        "en-GB", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric"
+        }
+    ).format(date).replace(/\./g, '-');
+    document.getElementById("date").innerHTML = myNewDate;
+</script>
+
+</html>
